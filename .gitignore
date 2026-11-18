@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 工具缓存
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 本地配置与密钥
+.env
+
+# 运行产物（评测结果、日志）
+artifacts/
+logs/

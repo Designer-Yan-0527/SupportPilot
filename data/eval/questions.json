@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "description": "SupportPilot M0 评测集（第一批）。gold_heading 必须与 splitter 产出的 heading_path 完全一致，评测脚本按它反查 chunk 序号，避免序号随切分参数变动而失效。",
+  "questions": [
+    {
+      "id": "q01",
+      "type": "table_lookup",
+      "question": "Mac 连 VPN 报 E-409，是什么原因，怎么处理？",
+      "gold_doc": "vpn-mac.md",
+      "gold_heading": "Mac 连接公司 VPN 配置指南 > 5. 常见错误码",
+      "answer_points": ["证书已过期", "到门户重新下载证书", "删除钥匙串中的旧证书"],
+      "must_cite": true
+    },
+    {
+      "id": "q02",
+      "type": "single_hop",
+      "question": "VPN 客户端安装完成后为什么要重启电脑？",
+      "gold_doc": "vpn-mac.md",
+      "gold_heading": "Mac 连接公司 VPN 配置指南 > 3. 下载并安装客户端",
+      "answer_points": ["确保系统扩展生效"],
+      "must_cite": true
+    },
+    {
+      "id": "q03",
+      "type": "single_hop",
+      "question": "VPN 证书密码和门户登录密码是同一个吗？",
+      "gold_doc": "vpn-mac.md",
+      "gold_heading": "Mac 连接公司 VPN 配置指南 > 4. 导入证书并建立连接",
+      "answer_points": ["该密码与门户登录密码不同", "只显示一次", "请立即保存"],
+      "must_cite": true
+    },
+    {
+      "id": "q04",
+      "type": "single_hop",
+      "question": "打印队列已经清空，打印机还是显示脱机，下一步做什么？",
+      "gold_doc": "printer-offline.md",
+      "gold_heading": "办公打印机脱机排查手册 > 4. 重建打印机端口",
+      "answer_points": ["端口记录已经失效", "添加端口 > Standard TCP/IP Port", "协议保持 RAW，端口号 9100"],
+      "must_cite": true
+    },
+    {
+      "id": "q05",
+      "type": "table_lookup",
+      "question": "打印机提示「需要用户干预」通常是什么原因？",
+      "gold_doc": "printer-offline.md",
+      "gold_heading": "办公打印机脱机排查手册 > 5. 错误提示对照",
+      "answer_points": ["卡纸或舱门未关好", "打开前盖取出纸张后复位"],
+      "must_cite": true
+    },
+    {
+      "id": "q06",
+      "type": "single_hop",
+      "question": "部门共享打印机可以直接填打印机 IP 添加吗？",
+      "gold_doc": "printer-offline.md",
+      "gold_heading": "办公打印机脱机排查手册 > 6. 共享打印机注意事项",
+      "answer_points": ["不能直接填写 IP", "\\\\fileserver\\printer-name"],
+      "must_cite": true
+    },
+    {
+      "id": "q07",
+      "type": "multi_hop",
+      "question": "换了办公位以后打印机显示脱机，可能是什么原因、该怎么处理？",
+      "gold_doc": "printer-offline.md",
+      "gold_heading": "办公打印机脱机排查手册 > 2. 快速自查",
+      "extra_headings": ["办公打印机脱机排查手册 > 4. 重建打印机端口"],
+      "answer_points": ["打印机 IP 与电脑记录的地址不一致", "说明端口记录已经失效", "添加端口 > Standard TCP/IP Port"],
+      "must_cite": true
+    },
+    {
+      "id": "q08",
+      "type": "unanswerable",
+      "question": "公司 VPN 客户端支持 Linux 系统吗？",
+      "gold_doc": null,
+      "gold_heading": null,
+      "answer_points": ["语料只覆盖 macOS，应回答无法确认并建议提交工单"],
+      "must_cite": false
+    }
+  ]
+}
