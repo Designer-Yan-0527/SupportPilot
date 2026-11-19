@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "description": "SupportPilot M0 评测集（第一批）。gold_heading 必须与 splitter 产出的 heading_path 完全一致，评测脚本按它反查 chunk 序号，避免序号随切分参数变动而失效。",
+  "version": 2,
+  "description": "SupportPilot 评测集。第二批（q09~q14）：新增 vpn-windows / outlook-email 两篇干扰文档，并把新题全部改成口语化措辞——问题中不出现 gold 章节的标志性原词，专测「没有字面重叠时还能否找到答案」。gold_heading 必须与 splitter 产出的 heading_path 完全一致，评测脚本按（文档名+标题路径）反查 chunk。",
   "questions": [
     {
       "id": "q01",
@@ -73,6 +73,88 @@
       "gold_doc": null,
       "gold_heading": null,
       "answer_points": ["语料只覆盖 macOS，应回答无法确认并建议提交工单"],
+      "must_cite": false
+    },
+    {
+      "id": "q09",
+      "type": "single_hop",
+      "question": "装好那个拨号上网的小工具之后，为什么非得重新开机一次？",
+      "gold_doc": "vpn-mac.md",
+      "gold_heading": "Mac 连接公司 VPN 配置指南 > 3. 下载并安装客户端",
+      "answer_points": ["确保系统扩展生效"],
+      "must_cite": true
+    },
+    {
+      "id": "q10",
+      "type": "single_hop",
+      "question": "我旁边那台网络打印机，能直接敲它的网址就添加上吗？",
+      "gold_doc": "printer-offline.md",
+      "gold_heading": "办公打印机脱机排查手册 > 6. 共享打印机注意事项",
+      "answer_points": ["不能直接填写 IP", "\\\\fileserver\\printer-name"],
+      "must_cite": true
+    },
+    {
+      "id": "q11",
+      "type": "table_lookup",
+      "question": "登录内网时提示我的凭据失效了，代码是 409 打头的，要怎么弄？",
+      "gold_doc": "vpn-mac.md",
+      "gold_heading": "Mac 连接公司 VPN 配置指南 > 5. 常见错误码",
+      "answer_points": ["证书已过期", "到门户重新下载证书", "删除钥匙串中的旧证书"],
+      "must_cite": true
+    },
+    {
+      "id": "q12",
+      "type": "multi_hop",
+      "question": "换了座位之后打印机就不干活了，第一步该查什么？",
+      "gold_doc": "printer-offline.md",
+      "gold_heading": "办公打印机脱机排查手册 > 2. 快速自查",
+      "extra_headings": ["办公打印机脱机排查手册 > 4. 重建打印机端口"],
+      "answer_points": ["打印机 IP 与电脑记录的地址不一致", "说明端口记录已经失效", "添加端口 > Standard TCP/IP Port"],
+      "must_cite": true
+    },
+    {
+      "id": "q13",
+      "type": "unanswerable",
+      "question": "公司邮箱的存储空间满了会自动帮我清理旧邮件吗？",
+      "gold_doc": null,
+      "gold_heading": null,
+      "answer_points": ["语料未涉及邮箱容量与自动清理策略，应回答无法确认并建议提交工单"],
+      "must_cite": false
+    },
+    {
+      "id": "q14",
+      "type": "single_hop",
+      "question": "Windows 机器连内网报 E-509，这是个什么毛病？",
+      "gold_doc": "vpn-windows.md",
+      "gold_heading": "Windows 电脑连接公司 VPN 配置指南 > 5. 常见错误码",
+      "answer_points": ["证书已过期", "到门户重新下载证书", "删除本地证书存储中的旧证书"],
+      "must_cite": true
+    },
+    {
+      "id": "q15",
+      "type": "single_hop",
+      "question": "那个联网工具老是闪退，反反复复的，能拿它怎么办？",
+      "gold_doc": "vpn-mac.md",
+      "gold_heading": "Mac 连接公司 VPN 配置指南 > 6. 卸载与重装",
+      "answer_points": ["先在「应用程序」中卸载", "删除 ~/Library/Application Support/CorpVPN 目录", "记录当前证书的到期时间"],
+      "must_cite": true
+    },
+    {
+      "id": "q16",
+      "type": "table_lookup",
+      "question": "机器面板上写让我自己动手处理，这是出什么事了？",
+      "gold_doc": "printer-offline.md",
+      "gold_heading": "办公打印机脱机排查手册 > 5. 错误提示对照",
+      "answer_points": ["卡纸或舱门未关好", "打开前盖取出纸张后复位"],
+      "must_cite": true
+    },
+    {
+      "id": "q17",
+      "type": "unanswerable",
+      "question": "住酒店连内网老掉线，是不是酒店把网掐了？",
+      "gold_doc": null,
+      "gold_heading": null,
+      "answer_points": ["语料未涉及外部网络环境问题，应回答无法确认并建议提交工单"],
       "must_cite": false
     }
   ]
