@@ -32,6 +32,7 @@ class Settings(BaseSettings):
     corpus_dir: Path = PROJECT_ROOT / "data" / "corpus"
     questions_file: Path = PROJECT_ROOT / "data" / "eval" / "questions.json"
     results_dir: Path = PROJECT_ROOT / "artifacts" / "eval"
+    qdrant_dir: Path = PROJECT_ROOT / "artifacts" / "qdrant"
 
     fixed_size: int = Field(DEFAULT_FIXED_SIZE, ge=1)
     fixed_overlap: int = Field(DEFAULT_FIXED_OVERLAP, ge=0)
